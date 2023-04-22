@@ -17,15 +17,15 @@ class Footer extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text("Developed by "),
+            const Text("Modified by "),
             InkWell(
               onTap: () => openURL(gitHub),
               child: const Text(
-                " Sudesh Bandara 💙",
+                " Kisan Kang ",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
-            const Text(" © 2022"),
+            const Text(" © 2023"),
           ],
         ),
       ),

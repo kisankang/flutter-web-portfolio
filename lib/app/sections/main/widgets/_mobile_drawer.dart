@@ -65,9 +65,7 @@ class _MobileDrawer extends StatelessWidget {
                   Space.y(5.w)!,
                   ColorChageButton(
                     text: 'RESUME',
-                    onTap: () {
-                      openURL(resume);
-                    },
+                    onTap: () => openURL(notionPortfolio),
                   ),
                 ],
               ),

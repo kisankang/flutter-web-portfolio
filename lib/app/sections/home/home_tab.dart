@@ -7,10 +7,11 @@ import 'package:mysite/changes/links.dart';
 import 'package:mysite/changes/strings.dart';
 import 'package:mysite/core/animations/entrance_fader.dart';
 import 'package:mysite/core/animations/zoom_animation.dart';
+import 'package:mysite/core/configs/app.dart';
 import 'package:mysite/core/configs/configs.dart';
 import 'package:mysite/core/res/responsive_size.dart';
+import 'package:mysite/core/util/constants.dart';
 import 'package:sizer/sizer.dart';
-import 'package:universal_html/html.dart' as html;
 
 class HomeTab extends StatelessWidget {
   const HomeTab({Key? key}) : super(key: key);
@@ -95,10 +96,8 @@ class HomeTab extends StatelessWidget {
                 ),
                 Space.y(2.w)!,
                 ColorChageButton(
-                  text: 'download cv',
-                  onTap: () {
-                    html.window.open(resume, "pdf");
-                  },
+                  text: 'check cv',
+                  onTap: () => openURL(notionPortfolio),
                 ),
               ],
             ),

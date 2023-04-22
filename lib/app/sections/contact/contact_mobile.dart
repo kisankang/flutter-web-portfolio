@@ -25,7 +25,7 @@ class ContactMobileTab extends StatelessWidget {
         ),
         Space.y(5.w)!,
         InkWell(
-          onTap: () => openURL(whatsapp),
+          onTap: () => openURL(kakao),
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
             decoration: BoxDecoration(

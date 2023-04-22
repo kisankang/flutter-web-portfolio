@@ -42,7 +42,7 @@ class _PortfolioDesktopState extends State<PortfolioDesktop> {
           ),
           Space.y(3.w)!,
           OutlinedButton(
-            onPressed: () => openURL(gitHub),
+            onPressed: () => openURL(notionPortfolio),
             child: const Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(

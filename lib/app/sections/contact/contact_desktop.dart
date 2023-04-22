@@ -67,7 +67,7 @@ class ContactDesktop extends StatelessWidget {
                       ],
                     ),
                     InkWell(
-                      onTap: () => openURL(whatsapp),
+                      onTap: () => openURL(kakao),
                       child: Container(
                         padding: const EdgeInsets.symmetric(
                             vertical: 5, horizontal: 20),

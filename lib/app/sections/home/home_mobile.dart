@@ -8,8 +8,8 @@ import 'package:mysite/core/animations/entrance_fader.dart';
 import 'package:mysite/core/animations/zoom_animation.dart';
 import 'package:mysite/core/configs/configs.dart';
 import 'package:mysite/core/res/responsive_size.dart';
+import 'package:mysite/core/util/constants.dart';
 import 'package:sizer/sizer.dart';
-import 'package:universal_html/html.dart' as html;
 
 import 'widgets/animation_text.dart';
 
@@ -66,10 +66,8 @@ class HomeMobile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ColorChageButton(
-                text: 'download cv',
-                onTap: () {
-                  html.window.open(resume, "pdf");
-                },
+                text: 'check cv',
+                onTap: () => openURL(notionPortfolio),
               ),
               const EntranceFader(
                 offset: Offset(0, 0),
