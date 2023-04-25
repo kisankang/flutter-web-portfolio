@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mysite/app/sections/main/main_section.dart';
 import 'package:mysite/core/configs/configs.dart';
-import 'package:mysite/core/configs/connection/bloc/connected_bloc.dart';
-import 'package:mysite/core/configs/connection/network_check.dart';
 import 'package:mysite/core/providers/drawer_provider.dart';
 import 'package:mysite/core/providers/scroll_provider.dart';
 import 'package:mysite/core/theme/cubit/theme_cubit.dart';
@@ -17,7 +16,6 @@ class MySite extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ThemeCubit>(create: (_) => ThemeCubit()),
-        BlocProvider<ConnectedBloc>(create: (context) => ConnectedBloc()),
       ],
       child: MultiProvider(
         providers: [
@@ -31,7 +29,7 @@ class MySite extends StatelessWidget {
               title: 'Kisan',
               theme: AppTheme.themeData(state.isDarkThemeOn, context),
               initialRoute: "/",
-              routes: {"/": (context) => const NChecking()},
+              routes: {"/": (context) => const MainPage()},
             );
           });
         }),
