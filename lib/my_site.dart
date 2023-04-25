@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mysite/app/sections/main/main_section.dart';
-import 'package:mysite/core/configs/configs.dart';
+import 'package:mysite/common/configs/configs.dart';
 import 'package:mysite/data/service/theme_service.dart';
+import 'package:mysite/modules/main_page/main_page.dart';
 import 'package:sizer/sizer.dart';
 
 class MySite extends StatelessWidget {
