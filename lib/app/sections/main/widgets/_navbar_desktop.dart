@@ -10,10 +10,11 @@ class _NavbarDesktop extends StatefulWidget {
 class _NavbarDesktopState extends State<_NavbarDesktop> {
   @override
   Widget build(BuildContext context) {
+    final ThemeService themeService = Get.find();
     Size size = MediaQuery.of(context).size;
     // theme
     var theme = Theme.of(context);
-    return BlocBuilder<ThemeCubit, ThemeState>(builder: (context, state) {
+    return Obx(() {
       return Container(
         padding: EdgeInsets.symmetric(horizontal: size.width / 8, vertical: 10),
         color: theme.navBarColor,
@@ -30,13 +31,17 @@ class _NavbarDesktopState extends State<_NavbarDesktop> {
             // Space.x!,
             InkWell(
                 onTap: () {
-                  context.read<ThemeCubit>().updateTheme(!state.isDarkThemeOn);
+                  themeService.updateTheme(!themeService.isDarkThemeOn.value);
                 },
                 child: Image.network(
-                  state.isDarkThemeOn ? IconUrls.darkIcon : IconUrls.lightIcon,
+                  themeService.isDarkThemeOn.value
+                      ? IconUrls.darkIcon
+                      : IconUrls.lightIcon,
                   height: 30,
                   width: 30,
-                  color: state.isDarkThemeOn ? Colors.black : Colors.white,
+                  color: themeService.isDarkThemeOn.value
+                      ? Colors.black
+                      : Colors.white,
                 )),
             // Space.x!,
           ],

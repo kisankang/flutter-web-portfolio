@@ -5,12 +5,14 @@ class _MobileDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeService themeService = Get.find();
     final ScrollService scrollService = Get.find();
     // theme
     var theme = Theme.of(context);
     return Drawer(
-      child: BlocBuilder<ThemeCubit, ThemeState>(
-        builder: (context, state) {
+      child: Obx(
+        () {
+          bool isDarkTheme = themeService.isDarkThemeOn.value;
           return Material(
             color: theme.scaffoldBackgroundColor,
             child: Padding(
@@ -22,19 +24,16 @@ class _MobileDrawer extends StatelessWidget {
                   const Divider(),
                   ListTile(
                     leading: Icon(
-                      state.isDarkThemeOn
-                          ? Icons.dark_mode_outlined
-                          : Icons.light_mode,
+                      isDarkTheme ? Icons.dark_mode_outlined : Icons.light_mode,
                       // color: theme.textColor,
                     ),
-                    title:
-                        Text(state.isDarkThemeOn ? "Light Mode" : "Dark Mode"),
+                    title: Text(isDarkTheme ? "Light Mode" : "Dark Mode"),
                     trailing: Switch(
-                      value: state.isDarkThemeOn,
+                      value: isDarkTheme,
                       activeColor: theme.primaryColor,
                       inactiveTrackColor: Colors.grey,
                       onChanged: (newValue) {
-                        context.read<ThemeCubit>().updateTheme(newValue);
+                        themeService.updateTheme(newValue);
                       },
                     ),
                   ),
