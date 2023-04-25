@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mysite/core/animations/entrance_fader.dart';
 import 'package:mysite/core/color/colors.dart';
-import 'package:mysite/core/providers/scroll_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:mysite/data/service/scroll_service.dart';
 import 'package:sizer/sizer.dart';
 
 class ArrowOnTop extends StatefulWidget {
@@ -16,7 +16,7 @@ class ArrowOnTopState extends State<ArrowOnTop> {
   bool isHover = false;
   @override
   Widget build(BuildContext context) {
-    final scrollProvider = Provider.of<ScrollProvider>(context);
+    final ScrollService scrollService = Get.find();
 
     return Positioned(
       bottom: 100,
@@ -31,7 +31,7 @@ class ArrowOnTopState extends State<ArrowOnTop> {
             children: [
               InkWell(
                 borderRadius: BorderRadius.circular(8.0),
-                onTap: () => scrollProvider.jumpTo(0),
+                onTap: () => scrollService.jumpTo(0),
                 onHover: (isHovering) {
                   if (isHovering) {
                     setState(() => isHover = true);

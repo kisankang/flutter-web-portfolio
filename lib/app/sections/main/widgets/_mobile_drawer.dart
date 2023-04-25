@@ -5,7 +5,7 @@ class _MobileDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scrollProvider = Provider.of<ScrollProvider>(context);
+    final ScrollService scrollService = Get.find();
     // theme
     var theme = Theme.of(context);
     return Drawer(
@@ -45,8 +45,7 @@ class _MobileDrawer extends StatelessWidget {
                           child: MaterialButton(
                             hoverColor: theme.primaryColor.withAlpha(70),
                             onPressed: () {
-                              // scrollProvider.scrollMobile(e.key);
-                              scrollProvider.jumpTo(e.key);
+                              scrollService.jumpTo(e.key);
                               Navigator.pop(context);
                             },
                             child: ListTile(
