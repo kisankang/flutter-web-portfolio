@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:mysite/app/widgets/arrow_on_top.dart';
 import 'package:mysite/app/widgets/color_chage_btn.dart';
 import 'package:mysite/changes/links.dart';
@@ -15,7 +15,7 @@ import 'package:mysite/app/utils/utils.dart';
 import 'package:mysite/app/widgets/navbar_actions_button.dart';
 import 'package:mysite/app/widgets/navbar_logo.dart';
 import 'package:mysite/core/res/responsive.dart';
-import 'package:mysite/core/theme/cubit/theme_cubit.dart';
+import 'package:mysite/data/service/theme_service.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +31,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     App.init(context);
+    final ThemeService themeService = Get.find();
     final drawerProvider = Provider.of<DrawerProvider>(context);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
@@ -46,8 +47,8 @@ class MainPage extends StatelessWidget {
         ),
       ),
       drawer: !Responsive.isDesktop(context) ? const _MobileDrawer() : null,
-      body: BlocBuilder<ThemeCubit, ThemeState>(
-        builder: (context, state) {
+      body: Obx(
+        () {
           return Stack(
             children: [
               Positioned(
@@ -93,7 +94,7 @@ class MainPage extends StatelessWidget {
                   ),
                 ),
               ),
-              if (!state.isDarkThemeOn)
+              if (!themeService.isDarkThemeOn.value)
                 Align(
                   alignment: Alignment.center,
                   child: Image.asset(

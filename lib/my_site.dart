@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mysite/app/sections/main/main_section.dart';
 import 'package:mysite/core/configs/configs.dart';
 import 'package:mysite/core/providers/drawer_provider.dart';
 import 'package:mysite/core/providers/scroll_provider.dart';
-import 'package:mysite/core/theme/cubit/theme_cubit.dart';
+import 'package:mysite/data/service/theme_service.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
 class MySite extends StatelessWidget {
@@ -13,27 +13,24 @@ class MySite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
+    final ThemeService themeService = Get.find();
+    return MultiProvider(
       providers: [
-        BlocProvider<ThemeCubit>(create: (_) => ThemeCubit()),
+        ChangeNotifierProvider(create: (_) => DrawerProvider()),
+        ChangeNotifierProvider(create: (_) => ScrollProvider()),
       ],
-      child: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (_) => DrawerProvider()),
-          ChangeNotifierProvider(create: (_) => ScrollProvider()),
-        ],
-        child: BlocBuilder<ThemeCubit, ThemeState>(builder: (context, state) {
-          return Sizer(builder: (context, orientation, deviceType) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'Kisan',
-              theme: AppTheme.themeData(state.isDarkThemeOn, context),
-              initialRoute: "/",
-              routes: {"/": (context) => const MainPage()},
-            );
-          });
-        }),
-      ),
+      child: Obx(() {
+        bool isDarkTheme = themeService.isDarkThemeOn.value;
+        return Sizer(builder: (context, orientation, deviceType) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Kisan',
+            theme: AppTheme.themeData(isDarkTheme, context),
+            initialRoute: "/",
+            routes: {"/": (context) => const MainPage()},
+          );
+        });
+      }),
     );
   }
 }
