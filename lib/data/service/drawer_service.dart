@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class DrawerProvider extends ChangeNotifier {
+class DrawerService extends GetxService {
   final scafoldKey = GlobalKey<ScaffoldState>();
 
   GlobalKey<ScaffoldState> get key => scafoldKey;

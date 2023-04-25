@@ -51,7 +51,7 @@ class _NavBarTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final drawerProvider = Provider.of<DrawerProvider>(context);
+    final DrawerService drawerService = Get.find();
     var theme = Theme.of(context);
     return Container(
       color: theme.navBarColor,
@@ -62,7 +62,7 @@ class _NavBarTablet extends StatelessWidget {
           IconButton(
             highlightColor: Colors.white54,
             onPressed: () {
-              drawerProvider.key.currentState!.openDrawer();
+              drawerService.key.currentState!.openDrawer();
             },
             icon: const Icon(Icons.menu),
           ),

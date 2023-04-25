@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-class ScrollProvider extends ChangeNotifier {
+class ScrollService extends GetxService {
   final ItemScrollController itemScrollController = ItemScrollController();
   final scrollDuration = const Duration(seconds: 1);
 
