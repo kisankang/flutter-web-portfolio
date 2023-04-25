@@ -1,31 +1,23 @@
-
 import 'dart:ui';
 
 import 'package:get/get.dart';
+import 'package:mysite/modules/main_page/main_controller.dart';
 import 'package:mysite/utils/image_helper.dart';
 import 'package:mysite/widgets/arrow_on_top.dart';
 import 'package:mysite/widgets/body.dart';
 import 'package:mysite/common/theme/colors.dart';
-import 'package:mysite/common/configs/app.dart';
 import 'package:mysite/widgets/mobile_drawer.dart';
 import 'package:mysite/widgets/navbar_desktop.dart';
 import 'package:mysite/common/theme/res/responsive.dart';
-import 'package:mysite/data/service/theme_service.dart';
-import 'package:mysite/data/service/drawer_service.dart';
 import 'package:flutter/material.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends GetWidget<MainController> {
   const MainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    App.init(context);
-    final ThemeService themeService = Get.find();
-    final DrawerService drawerService = Get.find();
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      key: drawerService.key,
+      key: controller.drawerService.key,
       extendBodyBehindAppBar: true,
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(120),
@@ -41,10 +33,10 @@ class MainPage extends StatelessWidget {
           return Stack(
             children: [
               Positioned(
-                top: height * 0.2,
+                top: controller.height * 0.2,
                 left: -88,
                 child: Container(
-                  height: height / 3,
+                  height: controller.height / 3,
                   width: 166,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
@@ -83,14 +75,14 @@ class MainPage extends StatelessWidget {
                   ),
                 ),
               ),
-              if (!themeService.isDarkThemeOn.value)
+              if (!controller.themeService.isDarkThemeOn.value)
                 Align(
                   alignment: Alignment.center,
                   child: Image.asset(
                     ImageHelper.background,
                     opacity: const AlwaysStoppedAnimation<double>(0.2),
-                    width: width,
-                    height: height,
+                    width: controller.width,
+                    height: controller.height,
                     fit: BoxFit.cover,
                     alignment: Alignment.topCenter,
                   ),

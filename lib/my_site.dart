@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mysite/common/configs/configs.dart';
 import 'package:mysite/data/service/theme_service.dart';
-import 'package:mysite/modules/main_page/main_page.dart';
+import 'package:mysite/routes/app_pages.dart';
 import 'package:sizer/sizer.dart';
 
 class MySite extends StatelessWidget {
@@ -14,12 +14,13 @@ class MySite extends StatelessWidget {
     return Obx(() {
       bool isDarkTheme = themeService.isDarkThemeOn.value;
       return Sizer(builder: (context, orientation, deviceType) {
-        return MaterialApp(
+        return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Kisan',
           theme: AppTheme.themeData(isDarkTheme, context),
-          initialRoute: "/",
-          routes: {"/": (context) => const MainPage()},
+          getPages: AppPages.pages,
+          initialRoute: Routes.mainPage,
+          initialBinding: BindingsBuilder(() {}),
         );
       });
     });
