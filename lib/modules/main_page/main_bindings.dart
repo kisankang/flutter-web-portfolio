@@ -6,7 +6,6 @@ class MainBinding implements Bindings {
   void dependencies() {
     Get.create(
       () => MainController(
-        themeService: Get.find(),
         drawerService: Get.find(),
       ),
     );

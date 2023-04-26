@@ -3,9 +3,8 @@ import 'package:mysite/common/theme/colors.dart';
 import 'package:flutter/scheduler.dart';
 
 class AppTheme {
-  static ThemeData themeData(bool isDarkTheme, BuildContext context) {
-    return isDarkTheme ? ThemeColors.lightTheme : ThemeColors.darkTheme;
-  }
+  static ThemeData lightMode = ThemeColors.lightTheme;
+  static ThemeData darkMode = ThemeColors.darkTheme;
 }
 
 class ThemeColors {
