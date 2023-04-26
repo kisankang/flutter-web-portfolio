@@ -34,6 +34,7 @@ dependencies:
   # url_strategy: ^0.2.0
   universal_html: ^2.0.4
   get: ^4.6.5
+  get_storage: ^2.1.1
 
 dev_dependencies:
   flutter_test:
