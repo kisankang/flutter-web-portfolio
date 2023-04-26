@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mysite/common/configs/configs.dart';
 import 'package:mysite/common/theme/res/responsive.dart';
-import 'package:mysite/utils/services_utils.dart';
+import 'package:mysite/data/model/service_data_model.dart';
 import 'package:sizer/sizer.dart';
 
 import '../common/theme/colors.dart';
 
 class ServiceCard extends StatefulWidget {
-  final ServicesUtils service;
+  final ServiceDataModel service;
 
   const ServiceCard({Key? key, required this.service}) : super(key: key);
 
