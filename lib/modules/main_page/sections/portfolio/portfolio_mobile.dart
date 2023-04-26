@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:mysite/utils/project_utils.dart';
+import 'package:mysite/utils/content_data.dart';
 import 'package:mysite/widgets/custom_text_heading.dart';
 import 'package:mysite/utils/links.dart';
 import 'package:mysite/utils/content_text.dart';

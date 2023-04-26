@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mysite/utils/project_utils.dart';
+import 'package:mysite/data/model/project_data_model.dart';
 import 'package:mysite/common/theme/colors.dart';
 import 'package:mysite/common/configs/configs.dart';
 import 'package:mysite/common/theme/res/responsive.dart';
@@ -7,7 +7,7 @@ import 'package:mysite/utils/url_helper.dart';
 import 'package:sizer/sizer.dart';
 
 class ProjectCard extends StatefulWidget {
-  final ProjectUtils project;
+  final ProjectDataModel project;
 
   const ProjectCard({Key? key, required this.project}) : super(key: key);
   @override

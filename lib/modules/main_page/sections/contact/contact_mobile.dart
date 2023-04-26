@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mysite/utils/contact_utils.dart';
+import 'package:mysite/utils/content_data.dart';
 import 'package:mysite/widgets/custom_text_heading.dart';
 import 'package:mysite/utils/links.dart';
 import 'package:mysite/utils/content_text.dart';

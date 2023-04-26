@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mysite/data/service/scroll_service.dart';
-import 'package:mysite/utils/utils.dart';
+import 'package:mysite/utils/body_utils.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class Body extends StatelessWidget {
