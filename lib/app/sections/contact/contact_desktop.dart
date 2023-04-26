@@ -39,7 +39,7 @@ class ContactDesktop extends StatelessWidget {
               // crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
@@ -70,7 +70,7 @@ class ContactDesktop extends StatelessWidget {
                       onTap: () => openURL(kakao),
                       child: Container(
                         padding: const EdgeInsets.symmetric(
-                            vertical: 5, horizontal: 20),
+                            vertical: 5, horizontal: 14),
                         decoration: BoxDecoration(
                             gradient: buttonGradi,
                             // border: Border.all(
@@ -79,7 +79,7 @@ class ContactDesktop extends StatelessWidget {
                         child: const Text(
                           'Get Started',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: textColor,
                           ),
